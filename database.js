@@ -17,6 +17,14 @@ client.query(`SELECT * FROM public."User"`, (err, res) => {
   } else {
     console.log(err.message);
   }
+});
+
+client.query(`INSERT INTO public."`, (err, res) => {
+  if (!err) {
+    console.log(res.rows);
+  } else {
+    console.log(err.message);
+  }
 
   client.end;
 });
