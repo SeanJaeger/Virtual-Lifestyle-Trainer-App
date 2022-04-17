@@ -14,14 +14,9 @@ import {
 } from "react-native";
 import { reportLogBoxError } from "react-native/Libraries/LogBox/Data/LogBoxData";
 import { StackNavigator } from "react-navigation";
-// import { client, getUsers } from "../database/database";
-// import { AsyncStorage } from "react-native-community";
+import { useState } from "react";
+import { useEffect } from "react";
 
-// const Login = ({ navigation }) => {
-//   return <Text>YOOOOOOOOOOOOOO</Text>;
-// };
-
-// export default Login;
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -62,16 +57,51 @@ export default class Login extends React.Component {
           <TouchableOpacity style={styles.btn} onPress={this.login}>
             <Text>Login</Text>
           </TouchableOpacity>
+          {logins ? logins : "There is no Login data available"}
         </View>
       </KeyboardAvoidingView>
     );
   }
 
   login = () => {
-    // client.connect();
-    // getUsers();
+    getLogin();
   };
 } //End of Login
+
+const [logins, setLogins] = useState(false);
+useEffect(() => {
+  getLogin();
+}, []);
+
+function getLogin() {
+  fetch("https://localhost:3300")
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      setLogins(data);
+    });
+}
+
+function insertIntoLogin() {
+  let userName = prompt("Enter Username");
+  let email = prompt("Enter Email");
+  let password = prompt("Enter Password");
+  fetch("http:localhost:3300/insertLogin", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ userName, email, password }),
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      alert(data);
+      getLogin();
+    });
+}
 
 const styles = StyleSheet.create({
   wrapper: {
