@@ -2,7 +2,10 @@
   "expo": {
     "name": "virtual-lifestyle-trainer",
     "slug": "virtual-lifestyle-trainer",
-    "version": "1.0.0",
+    "version": "25.0.0",
+    "packagerOpts": {
+      "port": 3000
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {

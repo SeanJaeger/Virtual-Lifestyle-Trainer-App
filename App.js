@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {
   FlatList,
   StyleSheet,
@@ -10,8 +10,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { createStackNavigator } from "react-navigation-stack";
-import { createAppContainer } from "react-navigation";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./components/Login";
 
 import { StatusBar } from "expo-status-bar";
@@ -20,16 +20,46 @@ import Header from "./components/Header.js";
 // import FoodSearch from "./components/FoodSearch";
 import { useState } from "react";
 import { useEffect } from "react";
-import { query } from "react";
-import { render } from "react-dom";
-import { response } from "express";
 
-const AppNavigator = createStackNavigator({
-  Login: { screen: Login },
-});
+const Stack = createNativeStackNavigator();
 
-const App = createAppContainer(AppNavigator);
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ title: "Login" }}
+        />
+        {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
 export default App;
+
+// const AppNavigator = createStackNavigator(
+//   {
+//     // Header: { screen: Header },
+//     Login: { screen: Login },
+//   },
+//   {
+//     navigationOptions: {
+//       header: false,
+//     },
+//   }
+// );
+
+// export default class App extends React.Component {
+//   render() {
+//     return <AppNavigator />;
+//   }
+// }
+
+// const App = createAppContainer(AppNavigator);
+// export default App;
 
 // const styles = StyleSheet.create({
 //   container: {
