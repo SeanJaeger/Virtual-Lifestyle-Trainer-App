@@ -8,7 +8,7 @@ const MealCard = (props) => {
     return(
     <View style={styles.mealCardContainer}>
         <TouchableOpacity>
-            <Text>Recipe {props.recipeNumber}: </Text>
+            <Text>Recipe {props.recipeNumber}: {props.recipeName} </Text>
             <Text>Calories: {props.mealCalories}</Text>
             <Image style={styles.imageStyle} source={{uri:'https://media.istockphoto.com/photos/food-backgrounds-table-filled-with-large-variety-of-food-picture-id1155240408?k=20&m=1155240408&s=612x612&w=0&h=Zvr3TwVQ-wlfBnvGrgJCtv-_P_LUcIK301rCygnirbk='}}></Image>
             <View style={{ flexDirection:"row" }}>
