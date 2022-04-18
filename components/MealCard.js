@@ -13,10 +13,10 @@ const MealCard = (props) => {
             <Text>Recipe {props.recipeNumber}: {props.recipeName} </Text>
             <Text>Calories: {props.mealCalories}</Text>
             <Image style={styles.imageStyle} source={{uri:props.mealImage}}></Image>
-            <View style={{ flexDirection:"row" }}>
-                <Text>Protein:</Text>
-                <Text>Carbs:</Text>
-                <Text>Fat:</Text>
+            <View style={{ flexDirection:"row", justifyContent: 'space-between'}}>
+                <Text>Protein:{props.protein}</Text>
+                <Text>Carbs:{props.carbs}</Text>
+                <Text>Fat:{props.fat}</Text>
             </View>
             <View style={{ flexDirection:"row", justifyContent: 'space-between'}}>
             <TouchableOpacity style={styles.mealButtonStyle}>
