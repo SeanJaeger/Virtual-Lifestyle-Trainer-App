@@ -10,13 +10,14 @@ const client = new Client({
 
 client.connect();
 
-//Run queries one at a time
+//SELECT user_id, "firstName", "lastName", birthday, gender, login_id FROM public."User";
 client.query(`SELECT * FROM public."User"`, (err, res) => {
   if (!err) {
     console.log(res.rows);
   } else {
     console.log(err.message);
   }
+
   client.end;
 });
 
