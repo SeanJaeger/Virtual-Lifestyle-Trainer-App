@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {ActivityIndicator, FlatList, StyleSheet, Text, View,TouchableOpacity,ScrollView} from 'react-native';
 import { useEffect, useState } from "react";
-console.reportErrorsAsExceptions = false; // copy paste this line in your App.js 
+console.reportErrorsAsExceptions = false; 
 import MealCard from './components/MealCard.js';
 import Header from './components/Header.js';
 import axios from 'axios';
